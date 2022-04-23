@@ -6,19 +6,23 @@ large_letters = ['A','B','C','D','E','F','G','H','I', 'J','K','L','M','N','O','P
 
 generated_password = [] 
 
-while len(generated_password) < 15:         #filling password array while symbols are less than 15 characters
+while len(generated_password) < 15:         # filling password array while symbols are less than 15 characters
     for i in range(5):
-        random.shuffle(small_letters)
-        random.shuffle(large_letters)
+        random.shuffle(small_letters)      # shuffling array with small letters
+        random.shuffle(large_letters)      # shuffling array with large letters
 
-        random_small_letter = random.choice(small_letters)
+        random_small_letter = random.choice(small_letters)    # getting random small letter
+        random_large_letter = random.choice(large_letters)      # getting random large letter
+        
+        # deleting these letters from letters array, so that it doesn't repeat in the password array again 
+        
         small_letters.remove(random_small_letter)
-
-        random_large_letter = random.choice(large_letters)
         large_letters.remove(random_large_letter)
 
-        random_number = random.randint(0, 9)
-
+        random_number = random.randint(0, 9)     # getting random number
+        
+        # filling the values into the password array
+        
         generated_password.append(random_small_letter)
         generated_password.append(random_large_letter)
         generated_password.append(random_number) 
